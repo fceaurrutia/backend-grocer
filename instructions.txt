@@ -1,0 +1,4 @@
+First run docker-compose up -d --build on this folder.
+After that go to Run and Debug and use the launch.json.
+
+Then it's just a matter of programming jeje.
