@@ -13,3 +13,23 @@ services:
       - 8080:8080
       - 35729:35729
       - 5005:5005
+    networks:
+      - grocer-network
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: grocer
+      MYSQL_ROOT_PASSWORD: grocer_root
+      MYSQL_USER: grocer
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - grocer-network
+networks:
+  grocer-network:
+    driver: bridge
